@@ -7,7 +7,10 @@
   width: 100%;
   color: white;
   text-align: center;
-  padding-top: 40vh;
+  display:flex;
+  justify-content:space-around;
+  flex-direction:column;
+  align-items:center;
   h1{
     font-size:50px !important;
   }
@@ -34,4 +37,22 @@ html{
   .btn-primary{
     size:300px;
   }
+}
+.infront-banner{
+  width:600px;
+  height:400px;
+   background-size: cover !important;
+  background-repeat: no-repeat;
+  background-position: center;
+  position:center;
+margin-top:0;
+
+}
+.margin-top{
+  margin-top:400px
+}
+.margin-bottom{
+  margin-bottom:200px;
+  font-size:40px;
+
 }
