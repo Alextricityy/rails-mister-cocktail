@@ -5,6 +5,20 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-Ingredient.create(name: "lemon")
-Ingredient.create(name: "ice")
-Ingredient.create(name: "mint leaves")
+require 'open-uri'
+Ingredient.destroy_all
+Cocktail.destroy_all
+cocktail = Cocktail.create!(name: "Whiskey Sour")
+cocktail.remote_photo_url = 'https://cdn.liquor.com/wp-content/uploads/2016/08/03142547/Most-Popular-Cocktail-Recipes-July-2016-whiskey-sour-720x378-social.jpg'
+cocktail.save
+
+url = 'https://www.thecocktaildb.com/api/json/v1/1/list.php?i=list'
+ingredient = open(url).read
+json_ingredient = JSON.parse(ingredient)
+
+arrIngred = json_ingredient["drinks"].each do |ingredient|
+  ingredient["name"] = ingredient["strIngredient1"]
+  ingredient.delete("strIngredient1")
+end
+
+Ingredient.create!(arrIngred)
