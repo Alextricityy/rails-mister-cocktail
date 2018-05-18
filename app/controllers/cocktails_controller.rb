@@ -33,8 +33,9 @@ class CocktailsController < ApplicationController
   end
 
   def destroy
-    @cocktail = set_cocktail
-    @cocktail.delete
+    set_cocktail
+    @cocktail.destroy
+    redirect_to cocktails_path
   end
 
   def show
