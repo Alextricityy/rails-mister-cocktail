@@ -7,10 +7,10 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 require 'open-uri'
 Ingredient.destroy_all
-Cocktail.destroy_all
-cocktail = Cocktail.create!(name: "Whiskey Sour")
-cocktail.remote_photo_url = 'https://cdn.liquor.com/wp-content/uploads/2016/08/03142547/Most-Popular-Cocktail-Recipes-July-2016-whiskey-sour-720x378-social.jpg'
-cocktail.save
+# Cocktail.destroy_all
+# cocktail = Cocktail.create!(name: "Whiskey Sour")
+# cocktail.remote_photo_url = 'https://cdn.liquor.com/wp-content/uploads/2016/08/03142547/Most-Popular-Cocktail-Recipes-July-2016-whiskey-sour-720x378-social.jpg'
+# cocktail.save
 
 url = 'https://www.thecocktaildb.com/api/json/v1/1/list.php?i=list'
 ingredient = open(url).read
